@@ -1,0 +1,78 @@
+version: "3.8"
+
+services:
+  # Servicio de MySQL
+  mysql:
+    image: mysql:8.0
+    container_name: iga_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: iga_cursos
+      MYSQL_USER: iga_user
+      MYSQL_PASSWORD: iga_password
+      # Configuraciones adicionales para UTF-8
+      MYSQL_CHARSET: utf8mb4
+      MYSQL_COLLATION: utf8mb4_unicode_ci
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - iga_network
+
+  # Servicio de PHP para CodeIgniter
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: iga_backend
+    restart: always
+    volumes:
+      - ./backend:/var/www/html
+    ports:
+      - "8000:80"
+    depends_on:
+      - mysql
+    networks:
+      - iga_network
+
+  # Servicio para el Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: iga_frontend
+    restart: always
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "8080:8080"
+    networks:
+      - iga_network
+
+  # Servicio phpMyAdmin (opcional, para administrar la base de datos)
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: iga_phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "8081:80"
+    depends_on:
+      - mysql
+    networks:
+      - iga_network
+
+networks:
+  iga_network:
+    driver: bridge
+
+volumes:
+  mysql_data:
+    driver: local
