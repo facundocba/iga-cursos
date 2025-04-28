@@ -11,9 +11,8 @@ CREATE TABLE IF NOT EXISTS cursos (
     detalle TEXT NOT NULL,
     imagen VARCHAR(255),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
-);
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- Tabla de clientes con UTF-8
 CREATE TABLE IF NOT EXISTS clientes (
@@ -22,9 +21,8 @@ CREATE TABLE IF NOT EXISTS clientes (
     email VARCHAR(255) NOT NULL UNIQUE,
     telefono VARCHAR(20) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
-);
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- Tabla de compras con UTF-8
 CREATE TABLE IF NOT EXISTS compras (
@@ -34,9 +32,8 @@ CREATE TABLE IF NOT EXISTS compras (
     fecha_compra TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     estado ENUM('pendiente', 'completada', 'cancelada') DEFAULT 'completada',
     FOREIGN KEY (cliente_id) REFERENCES clientes(id),
-    FOREIGN KEY (curso_id) REFERENCES cursos(id),
-    CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
-);
+    FOREIGN KEY (curso_id) REFERENCES cursos(id)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- Tabla de usuarios administradores con UTF-8
 CREATE TABLE IF NOT EXISTS administradores (
@@ -45,9 +42,8 @@ CREATE TABLE IF NOT EXISTS administradores (
     email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
-);
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- Insertar algunos datos de prueba
 -- Cursos
@@ -59,4 +55,4 @@ INSERT INTO cursos (nombre, descripcion, precio, detalle, imagen) VALUES
 
 -- Administrador por defecto
 INSERT INTO administradores (nombre, email, password) VALUES 
-('Admin IGA', 'admin@iga.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'); -- password: password
+('Admin IGA', 'admin@iga.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'); -- password: password
