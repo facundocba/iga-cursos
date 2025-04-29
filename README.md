@@ -82,13 +82,18 @@ cd ../frontend
 npm install
 ```
 
-3. **Iniciar los contenedores:**
+3. **Configurar variables de entorno:**
+
+- Renombrar el archivo env-example a .env en /backend
+- Eliminar los comentarios del archivo .env antes de usarlo
+
+4. **Iniciar los contenedores:**
 
 ```bash
 docker-compose up -d
 ```
 
-4. **Acceder a la aplicación:**
+5. **Acceder a la aplicación:**
    - Frontend (Tienda): http://localhost:8080
    - Backend (API): http://localhost:8000
    - PHPMyAdmin: http://localhost:8081 (usuario: iga_user, contraseña: iga_password)
