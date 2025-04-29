@@ -1,4 +1,4 @@
--- Creación de la base de datos con UTF-8
+-- Creacion de la base de datos con UTF-8
 CREATE DATABASE IF NOT EXISTS iga_cursos CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE iga_cursos;
 
@@ -48,11 +48,11 @@ CREATE TABLE IF NOT EXISTS administradores (
 -- Insertar algunos datos de prueba
 -- Cursos
 INSERT INTO cursos (nombre, descripcion, precio, detalle, imagen) VALUES 
-('Cocina Italiana Básica', 'Aprende los fundamentos de la cocina italiana', 299.99, 'En este curso aprenderás a preparar pasta fresca, salsas clásicas y postres italianos tradicionales. Incluye 10 clases en video y material descargable.', 'italiana.jpg'),
-('Repostería Francesa', 'Domina el arte de la pastelería francesa', 349.99, 'Curso completo de repostería francesa con técnicas profesionales. Aprenderás a hacer croissants, éclairs, macarons y más. 15 clases en video y recetario digital.', 'reposteria.jpg'),
-('Cocina Asiática', 'Descubre los sabores de Asia', 249.99, 'Explora la diversidad de la cocina asiática con recetas de Japón, China, Tailandia y Vietnam. 12 clases en video con demostraciones paso a paso.', 'asiatica.jpg'),
-('Técnicas de Cocina Profesional', 'Aprende como un chef profesional', 499.99, 'Curso avanzado con técnicas utilizadas en restaurantes de alto nivel. Incluye cortes, métodos de cocción, presentación de platos y más. 20 clases en video.', 'profesional.jpg');
+('Cocina Italiana Basica', 'Aprende los fundamentos de la cocina italiana', 299.99, 'En este curso aprenderas a preparar pasta fresca, salsas clasicas y postres italianos tradicionales. Incluye 10 clases en video y material descargable.', 'italiana.jpg'),
+('Reposteria Francesa', 'Domina el arte de la pasteleria francesa', 349.99, 'Curso completo de reposteria francesa con tecnicas profesionales. Aprenderas a hacer croissants, eclairs, macarons y mas. 15 clases en video y recetario digital.', 'reposteria.jpg'),
+('Cocina Asiatica', 'Descubre los sabores de Asia', 249.99, 'Explora la diversidad de la cocina asiatica con recetas de Japon, China, Tailandia y Vietnam. 12 clases en video con demostraciones paso a paso.', 'asiatica.jpg'),
+('Tecnicas de Cocina Profesional', 'Aprende como un chef profesional', 499.99, 'Curso avanzado con tecnicas utilizadas en restaurantes de alto nivel. Incluye cortes, metodos de coccion, presentacion de platos y mas. 20 clases en video.', 'profesional.jpg');
 
 -- Administrador por defecto
 INSERT INTO administradores (nombre, email, password) VALUES 
-('Admin IGA', 'admin@iga.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'); -- password: password
+('Admin IGA', 'admin@iga.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'); -- password: password
