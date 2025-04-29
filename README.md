@@ -58,6 +58,7 @@ iga-cursos-gastronomicos/
 
 - Docker y Docker Compose
 - Git
+- PHP
 - Navegador web (Chrome, Firefox, Edge, etc.)
 
 ## Instalación y Configuración
